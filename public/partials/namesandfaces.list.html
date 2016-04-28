@@ -1,0 +1,13 @@
+Total Number of People: {{naf.people.length}}
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Photo Url</th>
+    </tr>
+    <tr ng-repeat="person in naf.people">
+        <td>{{naf.people.indexOf(person) + 1}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.photo}}</td>
+    </tr>
+</table>
