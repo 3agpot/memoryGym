@@ -1,7 +1,7 @@
 <div id="divNamesAndFaces" ng-controller="NamesAndFacesController as naf">
     <div class="row">
         <div class="col-xs-3 col-xs-offset-1" ui-view="viewPhoto">
-            <img src="img/faces/face1.jpg" class="img-thumbnail" alt="... no face ...">
+            <img src="http://media.intrinc.com/images/faces/face1.jpg" class="img-thumbnail" alt="... no face ...">
         </div>
         <div class="col-xs-7 col-xs-offset-1">
             <div class="row">
@@ -20,13 +20,10 @@
                         {{fullName}}
                     </div>
                     <div>
-                        <a ng-click="naf.tmp()">Click to load</a>
-                        <a ng-click="naf.show()">Click to alert</a>
-                        <a ng-click="naf.showDummy()">Click to alert</a>
+                        <a ng-click="naf.loadFaces()">Click to alert</a>
                         <ol ng-repeat="face in naf.faces">
                             <li>{{face.name.first}}</li>
                         </ol>
-                        What is here?
                     </div>
                 </div>
             </div>
