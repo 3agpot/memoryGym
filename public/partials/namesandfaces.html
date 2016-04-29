@@ -1,12 +1,12 @@
 <div id="divNamesAndFaces" ng-controller="NamesAndFacesController as naf">
     <div class="row">
-        <div class="col-xs-3 col-xs-offset-1" ui-view="viewPhoto">
-            <img src="http://media.intrinc.com/images/faces/face1.jpg" class="img-thumbnail" alt="... no face ...">
+        <div class="col-xs-3 col-xs-offset-1">
+            <img ng-src="{{naf.currentFaceUrl}}" class="img-thumbnail" alt="... no face ...">
         </div>
         <div class="col-xs-7 col-xs-offset-1">
             <div class="row">
                 <div class="col-xs-2 col-xs-offset-6" ui-view="viewProgressCount"></div>
-                <div class="col-xs-1 col-xs-offset-1" style="margin-top:28px; margin-bottom:40px;"><a ui-sref="home" class="glyphicon glyphicon-arrow-right" style="font-size: 2.5em"></a></div>
+                <div class="col-xs-1 col-xs-offset-1" style="margin-top:28px; margin-bottom:40px;"><a href='' ng-click='naf.nextFace()' class="glyphicon glyphicon-arrow-right" style="font-size: 2.5em"></a></div>
             </div>
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-1" style="margin-top:30px;">
@@ -17,13 +17,10 @@
                         </div>
                     </form>
                     <div>
-                        {{fullName}}
+                        {{naf.faces[naf.faceIndex].name.first + ' ' + naf.faces[naf.faceIndex].name.last}}
                     </div>
                     <div>
-                        <a ng-click="naf.loadFaces()">Click to alert</a>
-                        <ol ng-repeat="face in naf.faces">
-                            <li>{{face.name.first}}</li>
-                        </ol>
+                        {{fullName}}
                     </div>
                 </div>
             </div>

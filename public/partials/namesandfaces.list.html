@@ -1,13 +1,13 @@
-Total Number of People: {{naf.people.length}}
+Total Number of faces: {{naf.faces.length}}
 <table class="table table-hover">
     <tr>
         <th>#</th>
         <th>Name</th>
-        <th>Photo Url</th>
+        <th>Gender</th>
     </tr>
-    <tr ng-repeat="person in naf.people">
-        <td>{{naf.people.indexOf(person) + 1}}</td>
-        <td>{{person.name}}</td>
-        <td>{{person.photo}}</td>
+    <tr ng-repeat="person in naf.faces">
+        <td>{{naf.faces.indexOf(person) + 1}}</td>
+        <td><a href="{{person.faceUrl}}">{{person.name.first + ' ' + person.name.last}}</a></td>
+        <td>{{person.gender}}</td>
     </tr>
 </table>

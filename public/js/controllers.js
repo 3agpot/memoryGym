@@ -1,18 +1,25 @@
 angular.module('gymAppController', []).controller('NamesAndFacesController',['faces', function(faces){
     //this.faces= [{"name":{"first":"John", "last":"Smith"}}, {"name":{"first":"Jane", "last":"Smith"}}];
+    this.faceIndex = 0;
+    this.faces = faces.query();
+    this.faces.$promise.then(function(result){
+        this.faces = result;
+        //this.currentFaceUrl = this.faces[this.faceIndex].faceUrl;
+        //console.log(this.currentFaceUrl);
+    });
+    this.currentFaceUrl = 'http://media.intrinc.com/images/faces/face1.jpg'; 
 
     this.loadFaces = function(){
         this.faces = faces.query();
     }
 
-    this.people = [
-        {name: "John Smith", photo: "1234fsad.jpg"},
-        {name: "Robert Muckels", photo: "1fdsad23sad.jpg"},
-        {name: "Aaron McPuppels", photo: "1dsad23ad.jpg"},
-        {name: "Kenneth Rutters", photo: "hhs4fsad.jpg"},
-    ];
-    this.addPerson= function(){
-        this.people.push({name: this.newPerson, photo: "somePic.jpg"});
-        this.newPerson = '';
-    };
+    this.nextFace = function(){
+        this.faceIndex++;
+        if (this.faceIndex === this.faces.length) this.faceIndex = 0;
+        this.currentFaceUrl = this.faces[this.faceIndex].faceUrl;
+    }
+
+    this.fullName = function(faceIndex) {
+        return this.faces[faceIndex].name.first + ' ' + this.faces[faceIndex].name.last;
+    }
 }]);
