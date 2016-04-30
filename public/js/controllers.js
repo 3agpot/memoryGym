@@ -13,6 +13,13 @@ angular.module('gymAppController', []).controller('NamesAndFacesController',['fa
         this.faces = faces.query();
     }
 
+    this.checkForMatch = function(event) {
+        if(this.Name === this.faces[this.faceIndex].name.first + ' ' + this.faces[this.faceIndex].name.last) {
+           this.nextFace(); 
+           this.Name = '';
+        }
+    }
+
     this.nextFace = function(){
         this.faceIndex++;
         if (this.faceIndex === this.faces.length) this.faceIndex = 0;

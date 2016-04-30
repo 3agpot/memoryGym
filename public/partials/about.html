@@ -1,4 +1,15 @@
 <h1>This is About state</h1>
+<div id="gauge" class="200x160px"></div>
 <hr/>
 <a ui-sref="about.list">Show List</a>
 <div ui-view></div>
+
+<script>
+  var g = new JustGage({
+    id: "gauge",
+    value: 67,
+    min: 0,
+    max: 100,
+    title: "Visitors"
+  });
+</script>
