@@ -7,6 +7,7 @@ var fs = require('fs');
 var index = fs.readFileSync('index.html');
 var port = {number: 8080};
 var server = express();
+var reload = require('reload');
 
 var url = "mongodb://localhost:27017/memoryGym";
 var resp = [];
@@ -32,8 +33,9 @@ mongoClient.connect(url, function(err,db) {
     });
 });
 
-server.use(express.static(__dirname + '/bower_components'));
-server.use(express.static(__dirname + '/public'));
+server.use('/vendor_client', express.static(__dirname + '/bower_components'));
+server.use('/vendor_server', express.static(__dirname + '/node_modules'));
+server.use('/public', express.static(__dirname + '/public'));
 
 server.use(function(req, res, next){
     console.log('Time:' + Date.now());
@@ -52,19 +54,11 @@ server.get('/', function(req, res, next){
     res.end(index);
 });
 
-/*var server = http.createServer(function(request, response) {
-    if (request.url === '/') {
-        response.setHeader('Content-Type', 'text/html');
-        response.end(index);
-    }
-    else if (request.url ==='/faces') {
-        response.setHeader('Content-Type', 'application/json');
-        response.end(JSON.stringify(resp, null, 4));
-    }
-    console.log("Got a request from " + request.url);
-});*/
+httpServer = http.createServer(server);
 
-server.listen(8080, function(){
+reload(httpServer, server);
+
+httpServer.listen(8080, function(){
     console.log('I am listening on port ' + port.number);
 });
 

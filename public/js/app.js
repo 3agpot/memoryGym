@@ -5,38 +5,38 @@ gymApp.config(function($stateProvider, $urlRouterProvider){
     $stateProvider
         .state("home", {
             url: "/",
-            templateUrl: "partials/home.html"
+            templateUrl: "public/partials/home.html"
         })
         .state("mission", {
             url: "/mission",
-            templateUrl: "partials/mission.html"
+            templateUrl: "public/partials/mission.html"
         })
         .state("mission.list", {
             url: "/list",
-            templateUrl: "partials/mission.list.html"
+            templateUrl: "public/partials/mission.list.html"
         })
         .state("about", {
             url: "/about",
-            templateUrl: "partials/about.html"
+            templateUrl: "public/partials/about.html"
         })
         .state("about.list", {
             url: "/list",
-            templateUrl: "partials/about.list.html"
+            templateUrl: "public/partials/about.list.html"
         })
         .state("contact", {
             url: "/contact",
-            templateUrl: "partials/contact.html"
+            templateUrl: "public/partials/contact.html"
         })
         .state("namesandfaces", {
             url: "/namesandfaces",
             views: {
-                "": {templateUrl: "partials/namesandfaces.html"},
-                "viewProgressCount@namesandfaces": {templateUrl: "partials/namesandfaces.progressCount.html"},
-                "viewList@namesandfaces": {templateUrl: "partials/namesandfaces.list.html"}
+                "": {templateUrl: "public/partials/namesandfaces.html"},
+                "viewProgressCount@namesandfaces": {templateUrl: "public/partials/namesandfaces.progressCount.html"},
+                "viewList@namesandfaces": {templateUrl: "public/partials/namesandfaces.list.html"}
             }
         })
         .state("namesandfaces.list", {
             url: "/list",
-            templateUrl: "partials/namesandfaces.list.html"
+            templateUrl: "public/partials/namesandfaces.list.html"
         });
 });
