@@ -1,18 +1,18 @@
 <div id="divNamesAndFaces" ng-controller="NamesAndFacesController as naf">
     <div class="row">
         <div class="col-md-3 col-md-offset-1">
-            <img ng-src="{{naf.currentFaceUrl}}" class="img-thumbnail" alt="... no face ...">
+            <img ng-src="{{naf.currentFaceUrl}}" class="img-thumbnail" alt="This is for a face to display to the candidate who must remember the name for it">
         </div>
         <div class="col-md-7 col-md-offset-1">
             <div class="row">
-                <div class="col-md-2"><label class="label label-warning">{{naf.faceIndex+1}} of {{naf.faces.length}}</label></div>
-                <div style="border:1px solid green;" class="cold-md-2 col-md-offset-1">Points: {{2*naf.faceIndex}}</div>
-                <div style="border:1px solid green;" class="cold-md-2 col-md-offset-1">Time Remaining: 14:42</div>
-                <div class="btn-group btn-group-lg" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default">Left</button>
-                    <button type="button" class="btn btn-default">Middle</button>
-                    <button type="button" class="btn btn-default">Right</button>
+                <div class="col-md-5 pull-right btn-group btn-group-lg" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">Easy</button>
+                    <button type="button" class="btn btn-default">Medium</button>
+                    <button type="button" class="btn btn-default">Hard</button>
                 </div>
+                <div class="col-md-2"><label class="label label-warning" style="font-size:1.5em">{{naf.faceIndex+1}} of {{naf.faces.length}}</label></div>
+                <div class="col-md-2">Points: {{2*naf.faceIndex}}</div>
+                <div class="col-md-2"></div>
                 <!--div class="col-md-1 col-md-offset-1" style="margin-top:28px; margin-bottom:40px;"><a href='' ng-click='naf.nextFace()' class="glyphicon glyphicon-arrow-right" style="font-size: 2.5em"></a></div-->
             </div>
             <div class="row">
