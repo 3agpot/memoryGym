@@ -9,6 +9,7 @@ var port = {number: 8080};
 var server = express();
 var reload = require('reload');
 
+
 var url = "mongodb://localhost:27017/memoryGym";
 var resp = [];
 
